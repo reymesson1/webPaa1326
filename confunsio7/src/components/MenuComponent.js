@@ -22,10 +22,9 @@ class Menu extends Component{
                     <div key={dish.id} className="col-12 col-md-5 m-1">
                         <Card>
                              <CardImg width="100%" src={dish.image} alt={dish.name}/>
-                             <Media body className="ml-5">
-                                <Media heading>{dish.name}</Media>
-                                <p>{dish.description}</p>
-                            </Media>
+                             <CardImgOverlay>
+                                <CardTitle>{dish.name}</CardTitle>
+                            </CardImgOverlay>
                         </Card>
                     </div>
                 );
@@ -38,9 +37,7 @@ class Menu extends Component{
 
             <div className="container">
                 <div className="row">
-                    <Media list>
-                        {menu}
-                    </Media>
+                    {menu}
                 </div>
             </div>
         );
