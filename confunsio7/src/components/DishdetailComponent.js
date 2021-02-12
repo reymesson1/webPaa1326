@@ -30,12 +30,37 @@ export class DishDetail extends Component{
         }
     }
 
+    renderComments(dish) {
+        if (dish != null) {
+            const comments = dish.comments.map((comment) => {
+                return (
+                    <ul className="list-unstyled">
+                    <p>{comment.comment}</p>
+                    <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long',day: '2-digit'}).format(new Date(comment.date))}</p>
+                    </ul>
+                );
+            });
+            return (comments);
+        }
+        else {
+            return (
+                <div></div>
+            );
+        }
+    }
+
 
     render(){
 
         return(
-            <div>
-                {this.renderDish(this.props.selectedDish)}
+            <div className="row">
+                <div className="col-12 col-md-5 m-1">
+                    {this.renderDish(this.props.selectedDish)}
+                </div>
+                <div className="col-12 col-md-5 m-1">
+                    <h4>Reviews</h4>
+                    {/* {this.renderComments(this.props.selectedDish)} */}
+                </div>
             </div>
 
         );
