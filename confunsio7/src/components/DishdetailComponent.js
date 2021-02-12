@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
-import { Media } from 'reactstrap';
-import { DishDetail } from './DishdetailComponent'; 
 
-class Menu extends Component{
+// const menu;
 
-    constructor(props) {
+export class DishDetail extends Component{
+
+    constructor(props){
         super(props);
 
-        this.state = {
-            selectedDish: null
-        }
     }
 
     onDishSelect(dish){
@@ -19,6 +16,7 @@ class Menu extends Component{
             selectedDish : dish
         })
     }
+
 
     renderDish(dish){
         if(dish != null){
@@ -40,15 +38,15 @@ class Menu extends Component{
             );
         }
     }
-    
-    render(){
 
-        const menu = this.props.dishes.map(
+    renderDetail(dishes){
+        console.log(dishes);
 
-            (dish) => {
-
-                return(
-
+        let arrDish =  dishes.map((dish)=>{
+            console.log(dish);
+            
+            return(
+                    
                     <div key={dish.id} className="col-12 col-md-5 m-1">
                         <Card onClick={() => this.onDishSelect(dish)} >
                              <CardImg width="100%" src={dish.image} alt={dish.name}/>
@@ -58,27 +56,34 @@ class Menu extends Component{
                         </Card>
                     </div>
 
-                );
+            )
+        })
 
-            }
-        );
+                return(
+                    <div className="row" >{arrDish}</div>
+                )
+
+    }
 
 
 
-        return (
+    render(){
 
+        return(
             <div className="container">
                 <div className="row">
-                    {/* {menu} */}
+                    {this.renderDetail(this.props.dishes)}
                 </div>
                 <div className="row">
-                    <DishDetail
-                         dishes={this.props.dishes}
-                         selectedDish={this.state.selectedDish}/>
+                    {this.renderDish(this.props.selectedDish)}
                 </div>
+                
             </div>
         );
     }
+
 }
 
-export default Menu;
+
+
+export default DishDetail;
