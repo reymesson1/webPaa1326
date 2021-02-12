@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu  from './MenuComponent.js';
 import { DISHES } from '../shared/dishes';
+import DishDetail from './DishdetailComponent';
+
 
 export class Main extends Component {
 
@@ -12,9 +14,21 @@ export class Main extends Component {
 
     this.state = {
 
-      dishes: DISHES
+      dishes: DISHES,
+      selectedDish: null
     };
   }
+
+  onDishSelect(dishId){
+
+
+    console.log(dishId);
+
+      this.setState({
+          selectedDish : dishId
+      })
+  }
+
 
   render() {
     return (
@@ -24,7 +38,12 @@ export class Main extends Component {
             <NavbarBrand href="/">Ristorante Con Dios</NavbarBrand>
           </div>
         </Navbar>
-        <Menu dishes={this.state.dishes}/>
+        <Menu dishes={this.state.dishes}
+              onClick={(dishId)=> this.onDishSelect(dishId)}
+        />
+        <DishDetail 
+              dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} 
+        />
       </div>
     );
   }
