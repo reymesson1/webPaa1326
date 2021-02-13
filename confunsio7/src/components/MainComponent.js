@@ -1,11 +1,10 @@
 import logo from '../logo.svg';
 import '../App.css';
 import React, {Component} from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu  from './MenuComponent.js';
 import { DISHES } from '../shared/dishes';
 import DishDetail from './DishdetailComponent';
-
+import Header from './HeaderComponent';
 
 export class Main extends Component {
 
@@ -33,11 +32,7 @@ export class Main extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Ristorante Con Dios</NavbarBrand>
-          </div>
-        </Navbar>
+        <Header/>
         <Menu dishes={this.state.dishes}
               onClick={(dishId)=> this.onDishSelect(dishId)}
         />
