@@ -5,6 +5,7 @@ import Menu  from './MenuComponent.js';
 import { DISHES } from '../shared/dishes';
 import DishDetail from './DishdetailComponent';
 import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 
 export class Main extends Component {
 
@@ -39,6 +40,7 @@ export class Main extends Component {
         <DishDetail 
               dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} 
         />
+        <Footer/>
       </div>
     );
   }

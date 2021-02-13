@@ -18,7 +18,7 @@ export class Header extends Component{
                     <div className="row row-header">
                         <div className="col-12 col-sm-6">
                             <h1>Ristorante Con Dios</h1>
-                            <p>We put all our faith in God, because in God we trust. Since the head to the feet.</p>
+                            <p>We put all our faith in God, because in God we trust. Since the head to the feet. He had made great think in my life, for that reason we workship him because he is great.</p>
                         </div>
                     </div>
                 </div>
