@@ -24,9 +24,8 @@ import { Link } from 'react-router-dom';
     }
 
     function RenderComments({comments}) {
-        console.log(comments);
         if (comments != null) {
-            const comments = comments.map((comment) => {
+            const dishComments = comments.map((comment) => {
                 return (
                     <ul className="list-unstyled">
                     <p>{comment.comment}</p>
@@ -34,7 +33,7 @@ import { Link } from 'react-router-dom';
                     </ul>
                 );
             });
-            return (comments);
+            return (dishComments);
         }
         else {
             return (
@@ -77,7 +76,7 @@ import { Link } from 'react-router-dom';
                     <div className="col-12 col-md-5 m-1">
                         <h4>Comments</h4>
                         <RenderComments 
-                        dish={props.dish}
+                        comments={props.comments}
                         />
                     </div>
                 </div>
