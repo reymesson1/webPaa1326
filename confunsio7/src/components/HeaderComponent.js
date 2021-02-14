@@ -37,7 +37,7 @@ export class Header extends Component{
       handleLogin(event){
         alert("Username :" + this.username.value + " Password:" + this.password.value + "  Remember:" + this.remember.value  );
         this.toggleModal();
-        // event.preventDefault;
+        event.preventDefault();
 
       }
 
