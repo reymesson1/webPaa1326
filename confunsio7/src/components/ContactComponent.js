@@ -93,7 +93,7 @@ export class Contact extends Component{
 
     render(){
 
-        const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum);
+        const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
 
         return(
             <div className="container">
@@ -189,7 +189,7 @@ export class Contact extends Component{
                                     Telephone Number
                                 </Label>
                                 <Col md={10}>
-                                    <Input type="text" id="telnum" name="telnum"                                 
+                                    <Input type="tel" id="telnum" name="telnum"                                 
                                     placeHolder="Telephone Number"
                                     value={this.state.telnum}
                                     valid={errors.telnum===''}
@@ -207,7 +207,7 @@ export class Contact extends Component{
                                     Email
                                 </Label>
                                 <Col md={10}>
-                                    <Input type="text" id="email" name="email"                                 
+                                    <Input type="email" id="email" name="email"                                 
                                     placeHolder="Email"
                                     value={this.state.email}
                                     valid={errors.email===''}
